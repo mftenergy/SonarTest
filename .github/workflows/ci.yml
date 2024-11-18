@@ -38,5 +38,6 @@ jobs:
           -Dsonar.test.exclusions=**/obj/**,**/bin/**,**/*.dll,**/*.exe,**/*.xml,**/*tests*/**/*
           -Dsonar.test.inclusions=**/*tests*/**/*
           -Dsonar.coverage.exclusions=**/Program.cs
+          -Dsonar.scm.provider=git
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
