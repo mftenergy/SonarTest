@@ -31,6 +31,9 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-sonar-
 
+    - name: Build
+      run: dotnet build --configuration Release
+
     - name: SonarCloud Scan
       uses: sonarsource/sonarcloud-github-action@v3
       if: ${{ github.event_name == 'pull_request' }}
