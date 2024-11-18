@@ -1,0 +1,16 @@
+name: ci
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  ci:
+    uses: mftenergy/dotnet-reusable-workflows/.github/workflows/ci-csharp-service-template.yml@feature/sonar_scan
+    with:
+      sonar-project: "mftenergy_SonarTest"
+      servicedir-to-publish: "app"
+      workspace: "."
+    secrets: inherit
