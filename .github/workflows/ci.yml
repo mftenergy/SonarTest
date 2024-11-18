@@ -27,7 +27,7 @@ jobs:
           ${{ runner.os }}-sonar-
 
     - name: SonarCloud Scan
-      uses: sonarsource/sonarcloud-github-action@3
+      uses: sonarsource/sonarcloud-github-action@v3
       if: ${{ github.event_name == 'pull_request' }}
       with:
         args: >
