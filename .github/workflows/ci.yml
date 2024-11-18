@@ -7,10 +7,36 @@ on:
   pull_request:
 
 jobs:
-  ci:
-    uses: mftenergy/dotnet-reusable-workflows/.github/workflows/ci-csharp-service-template.yml@feature/sonar_scan
-    with:
-      sonar-project: "mftenergy_SonarTest"
-      servicedir-to-publish: "app"
-      workspace: "."
-    secrets: inherit
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - name: Install SonarCloud Scanner
+      if: ${{ github.event_name == 'pull_request' }}
+      run: dotnet tool install --global dotnet-sonarscanner
+
+    - name: cache sonar scanner
+      id: cache-sonar
+      if: ${{ github.event_name == 'pull_request' }}
+      uses: actions/cache@v4
+      with:
+        path: ~/.sonar/cache
+        key: ${{ runner.os }}-sonar-${{ hashFiles('**/*.csproj') }}
+        restore-keys: |
+          ${{ runner.os }}-sonar-
+
+    - name: SonarCloud Scan
+      uses: sonarsource/sonarcloud-github-action@3
+      if: ${{ github.event_name == 'pull_request' }}
+      with:
+        args: >
+          -Dsonar.organization=mft-energy
+          -Dsonar.projectKey=mftenergy_SonarTest
+          -Dsonar.cs.opencover.reportsPaths=**/TestResults/**/coverage.opencover.xml
+          -Dsonar.cs.roslyn.ignoreIssues=true
+          -Dsonar.test.exclusions=**/obj/**,**/bin/**,**/*.dll,**/*.exe,**/*.xml,**/*tests*/**/*
+          -Dsonar.tests=**/*tests*/**/*
+          -Dsonar.coverage.exclusions=**/Program.cs
+      env:
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
