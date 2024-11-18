@@ -36,7 +36,7 @@ jobs:
           -Dsonar.cs.opencover.reportsPaths=**/TestResults/**/coverage.opencover.xml
           -Dsonar.cs.roslyn.ignoreIssues=true
           -Dsonar.test.exclusions=**/obj/**,**/bin/**,**/*.dll,**/*.exe,**/*.xml,**/*tests*/**/*
-          -Dsonar.tests=**/*tests*/**/*
+          -Dsonar.test.inclusions=**/*tests*/**/*
           -Dsonar.coverage.exclusions=**/Program.cs
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
