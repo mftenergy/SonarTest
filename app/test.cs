@@ -2,9 +2,9 @@ using System;
 
 namespace SonarTest
 {
-    class TestClass
+    public class TestClass
     {
-        static void ComplexMethod()
+        public void ComplexMethod()
         {
             int a = 10;
             int b = 20;

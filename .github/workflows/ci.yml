@@ -48,6 +48,9 @@ jobs:
     - name: Build
       run: dotnet build --configuration Release
 
+    - name: Test
+      run: dotnet test --no-build --configuration Release /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput=./TestResults/ /p:ExcludeByFile="%2a%2a/Program.cs" /p:ExcludeByAttribute=Obsolete%2cGeneratedCodeAttribute
+
     - name: End sonar scan
       run: dotnet sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
       env:
