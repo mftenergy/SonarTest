@@ -1,35 +1,43 @@
-void ComplexMethod()
-{
-    int a = 10;
-    int b = 20;
-    int c = 30;
-    int d = 40;
-    int e = 50;
-    int f = 60;
-    int g = 70;
-    int h = 80;
-    int i = 90;
-    int j = 100;
+using System;
 
-    if (a > b)
+namespace SonarTest
+{
+    class TestClass
     {
-        if (b > c)
+        static void ComplexMethod()
         {
-            if (c > d)
+            int a = 10;
+            int b = 20;
+            int c = 30;
+            int d = 40;
+            int e = 50;
+            int f = 60;
+            int g = 70;
+            int h = 80;
+            int i = 90;
+            int j = 100;
+
+            if (a > b)
             {
-                if (d > e)
+                if (b > c)
                 {
-                    if (e > f)
+                    if (c > d)
                     {
-                        if (f > g)
+                        if (d > e)
                         {
-                            if (g > h)
+                            if (e > f)
                             {
-                                if (h > i)
+                                if (f > g)
                                 {
-                                    if (i > j)
+                                    if (g > h)
                                     {
-                                        Console.WriteLine("a > b > c > d > e > f > g > h > i > j");
+                                        if (h > i)
+                                        {
+                                            if (i > j)
+                                            {
+                                                Console.WriteLine("a > b > c > d > e > f > g > h > i > j");
+                                            }
+                                        }
                                     }
                                 }
                             }
@@ -37,47 +45,47 @@ void ComplexMethod()
                     }
                 }
             }
-        }
-    }
 
-    for (int k = 0; k < 100; k++)
-    {
-        Console.WriteLine("This is line " + k);
-    }
-}
-
-void ComplexMethod2()
-{
-    int a = 10;
-    int b = 20;
-    int c = 30;
-    int d = 40;
-    int e = 50;
-    int f = 60;
-    int g = 70;
-    int h = 80;
-    int i = 90;
-    int j = 100;
-
-    if (a > b)
-    {
-        if (b > c)
-        {
-            if (c > d)
+            for (int k = 0; k < 100; k++)
             {
-                if (d > e)
+                Console.WriteLine("This is line " + k);
+            }
+        }
+
+        static void ComplexMethod2()
+        {
+            int a = 10;
+            int b = 20;
+            int c = 30;
+            int d = 40;
+            int e = 50;
+            int f = 60;
+            int g = 70;
+            int h = 80;
+            int i = 90;
+            int j = 100;
+
+            if (a > b)
+            {
+                if (b > c)
                 {
-                    if (e > f)
+                    if (c > d)
                     {
-                        if (f > g)
+                        if (d > e)
                         {
-                            if (g > h)
+                            if (e > f)
                             {
-                                if (h > i)
+                                if (f > g)
                                 {
-                                    if (i > j)
+                                    if (g > h)
                                     {
-                                        Console.WriteLine("a > b > c > d > e > f > g > h > i > j");
+                                        if (h > i)
+                                        {
+                                            if (i > j)
+                                            {
+                                                Console.WriteLine("a > b > c > d > e > f > g > h > i > j");
+                                            }
+                                        }
                                     }
                                 }
                             }
@@ -85,11 +93,11 @@ void ComplexMethod2()
                     }
                 }
             }
-        }
-    }
 
-    for (int k = 0; k < 100; k++)
-    {
-        Console.WriteLine("This is line " + k);
+            for (int k = 0; k < 100; k++)
+            {
+                Console.WriteLine("This is line " + k);
+            }
+        }
     }
 }
