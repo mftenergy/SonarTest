@@ -36,10 +36,11 @@ jobs:
         dotnet sonarscanner begin \
         /k:"mftenergy_SonarTest" \
         /o:"mftenergy" \
-        /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
-        /d:sonar.cs.roslyn.ignoreIssues=true
-        /d:sonar.test.exclusions="**/obj/**,**/bin/**,**/*.dll,**/*.exe,**/*.xml,**/*tests*/**/*"
-        /d:sonar.test.inclusions="**/*tests*/**/*"
+        /d:sonar.login="${{ secrets.SONAR_TOKEN }}" \
+        /d:sonar.cs.opencover.reportsPaths="**/TestResults/**/coverage.opencover.xml" \
+        /d:sonar.cs.roslyn.ignoreIssues=true \
+        /d:sonar.test.exclusions="**/obj/**,**/bin/**,**/*.dll,**/*.exe,**/*.xml,**/*tests*/**/*" \
+        /d:sonar.test.inclusions="**/*tests*/**/*" \
         /d:sonar.coverage.exclusions="**/Program.cs"
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
